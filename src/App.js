@@ -1,92 +1,72 @@
 import { useState } from 'react';
 import './App.css';
+import CustomInput from './components/CustomInput';
 
 function App() {
   // Personal Information
-  const [firstName, setFirstName] = useState('');
-  const [secondName, setSecondName] = useState('');
-  const [title, setTitle] = useState('');
-  // const [photo, setPhoto] = useState('');
-  const [address, setAddress] = useState('');
-  const [email, setEmail] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [description, setDescription] = useState('');
+  const [firstName, setFirstName] = useState('Edgar');
+  const [secondName, setSecondName] = useState('Veress');
+  const [title, setTitle] = useState('Software Developer');
+  const [city, setCity] = useState('Cambridge');
+  const [email, setEmail] = useState('veress.edgar@gmail.com');
+  const [mobile, setMobile] = useState('0123456789');
+  const [description, setDescription] = useState(
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempus imperdiet nisl sed vestibulum. Donec gravida, nulla eget blandit fermentum, mauris nisi rutrum libero, ac pharetra erat est sit amet tellus. Quisque fermentum dolor a interdum fermentum. Maecenas vehicula ac ipsum nec gravida. Integer quis porta turpis. Aenean et metus.'
+  );
 
   // Experience
-  const [position, setPosition] = useState('');
-  const [company, setCompany] = useState('');
-  const [city, setCity] = useState('');
-  const [addressFrom, setAddressFrom] = useState('');
-  const [addressTo, setAddressTo] = useState('');
+  const [position, setPosition] = useState('Software Test Engineer');
+  const [company, setCompany] = useState('Twitter');
+  const [expCity, setExpCity] = useState('London');
+  const [yearFrom, setYearFrom] = useState('2018');
+  const [yearTo, setYearTo] = useState('2020');
 
   // Education
-  const [univeristy, setUniversity] = useState('');
-  const [uniCity, setUniCity] = useState('');
-  const [degree, setDegree] = useState('');
-  const [subject, setSubject] = useState('');
-  const [uniAddressFrom, setUniAddressFrom] = useState('');
-  const [uniAddressTo, setUniAddressTo] = useState('');
+  const [univeristy, setUniversity] = useState('UCB');
+  const [uniCity, setUniCity] = useState('Birmingham');
+  const [degree, setDegree] = useState('Marketing');
+  const [uniyearFrom, setUniyearFrom] = useState('2014');
+  const [uniyearTo, setUniyearTo] = useState('2017');
 
   return (
     <div className="main">
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(firstName);
-          console.log(secondName);
-          console.log(email);
-          console.log(mobile);
-        }}
-      >
+      <form type="submit">
         {/* Personal Information */}
         <div className="personal-information">
-          <h1>Personal Information</h1>
-          <input
-            type="text"
-            value={firstName}
-            placeholder="First Name"
-            onChange={(e) => setFirstName(e.target.value)}
+          <h4>Personal Information</h4>
+          <CustomInput
+            text={firstName}
+            placeholder={'First Name'}
+            func={(e) => setFirstName(e.target.value)}
           />
-          <input
-            type="text"
-            value={secondName}
+          <CustomInput
+            text={secondName}
             placeholder="Last Name"
-            onChange={(e) => setSecondName(e.target.value)}
+            func={(e) => setSecondName(e.target.value)}
           />
-          <input
-            type="text"
-            value={title}
-            placeholder="Title "
-            onChange={(e) => setTitle(e.target.value)}
+          <CustomInput
+            text={title}
+            placeholder="Title"
+            func={(e) => setTitle(e.target.value)}
           />
-          {/* <input
-            type="image"
-            alt="profile-pic"
-            value={photo}
-            placeholder="Photo"
-            onChange={(e) => setPhoto(e.target.value)}
-          /> */}
-          <input
-            type="text"
-            value={address}
-            placeholder="Address "
-            onChange={(e) => setAddress(e.target.value)}
+          <CustomInput
+            text={city}
+            placeholder="City"
+            func={(e) => setCity(e.target.value)}
           />
-          <input
-            type="email"
-            value={email}
+          <CustomInput
+            text={email}
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            func={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="tel"
-            value={mobile}
+          <CustomInput
+            text={mobile}
             placeholder="Phone Number"
-            onChange={(e) => setMobile(e.target.value)}
+            func={(e) => setMobile(e.target.value)}
           />
-          <input
-            type="text"
-            value={description}
+          <textarea
+            maxLength={'300'}
+            text={description}
             placeholder="Description"
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -94,84 +74,143 @@ function App() {
 
         {/* Experience */}
         <div className="experience">
-          <h1>Experience</h1>
-          <input
-            type="text"
-            value={position}
+          <h4>Experience</h4>
+          <CustomInput
+            text={position}
             placeholder="Position"
-            onChange={(e) => setPosition(e.target.value)}
+            func={(e) => setPosition(e.target.value)}
           />
-          <input
-            type="text"
-            value={company}
+          <CustomInput
+            text={company}
             placeholder="Company"
-            onChange={(e) => setCompany(e.target.value)}
+            func={(e) => setCompany(e.target.value)}
           />
-          <input
-            type="text"
-            value={city}
+          <CustomInput
+            text={expCity}
             placeholder="City"
-            onChange={(e) => setCity(e.target.value)}
+            func={(e) => setExpCity(e.target.value)}
           />
-          <input
-            type="text"
-            value={addressFrom}
+          <CustomInput
+            text={yearFrom}
             placeholder="From"
-            onChange={(e) => setAddressFrom(e.target.value)}
+            func={(e) => setYearFrom(e.target.value)}
           />
-          <input
-            type="text"
-            value={addressTo}
+          <CustomInput
+            text={yearTo}
             placeholder="To"
-            onChange={(e) => setAddressTo(e.target.value)}
+            func={(e) => setYearTo(e.target.value)}
           />
         </div>
 
         {/* Education */}
         <div className="education">
-          <h1>Education</h1>
-          <input
-            type="text"
-            value={univeristy}
+          <h4>Education</h4>
+          <CustomInput
+            text={univeristy}
             placeholder="University"
-            onChange={(e) => setUniversity(e.target.value)}
+            func={(e) => setUniversity(e.target.value)}
           />
-          <input
-            type="text"
-            value={uniCity}
+          <CustomInput
+            text={uniCity}
             placeholder="City"
-            onChange={(e) => setUniCity(e.target.value)}
+            func={(e) => setUniCity(e.target.value)}
           />
-          <input
-            type="text"
-            value={degree}
+          <CustomInput
+            text={degree}
             placeholder="Degree"
-            onChange={(e) => setDegree(e.target.value)}
+            func={(e) => setDegree(e.target.value)}
           />
-          <input
-            type="text"
-            value={subject}
-            placeholder="Subject"
-            onChange={(e) => setSubject(e.target.value)}
-          />
-          <input
-            type="text"
-            value={uniAddressFrom}
+          <CustomInput
+            text={uniyearFrom}
             placeholder="From"
-            onChange={(e) => setUniAddressFrom(e.target.value)}
+            func={(e) => setUniyearFrom(e.target.value)}
           />
-          <input
-            type="text"
-            value={uniAddressTo}
+          <CustomInput
+            text={uniyearTo}
             placeholder="To"
-            onChange={(e) => setUniAddressTo(e.target.value)}
+            func={(e) => setUniyearTo(e.target.value)}
           />
         </div>
         <div className="buttons">
-          <button>Submit</button>
-          <button>Reset</button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              console.log(firstName);
+            }}
+          >
+            Submit
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              console.log('reset');
+            }}
+          >
+            Reset
+          </button>
         </div>
       </form>
+      <div className="preview">
+        <div className="header">
+          <h2>
+            {firstName} {secondName}
+          </h2>
+          <h5>{title}</h5>
+        </div>
+        <div className="main-body">
+          <div className="left-side">
+            <h3>Description</h3>
+            <p>{description}</p>
+            <div className="experience-prev">
+              <h3>Experience</h3>
+              <div className="experience-body">
+                <div className="dates">
+                  <p className="bold">
+                    {yearFrom} - {yearTo}
+                  </p>
+                </div>
+                <div className="details">
+                  <p className="bold">{position}</p>
+                  <p>
+                    {company}, {expCity}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="education-prev">
+              <h3>Education</h3>
+              <div className="education-body">
+                <div className="dates">
+                  <p className="bold">
+                    {uniyearFrom} - {uniyearTo}
+                  </p>
+                </div>
+                <div className="details">
+                  <p className="bold">
+                    {univeristy}, {uniCity}
+                  </p>
+                  <p>Degree: {degree}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="right-side">
+            <img
+              src="https://thumbs.dreamstime.com/z/creative-vector-illustration-default-avatar-profile-placeholder-isolated-background-art-design-grey-photo-blank-template-mo-107388687.jpg"
+              alt="avatar"
+              height={'150vh'}
+              width={'150vw'}
+            />
+            <h3>Personal Details</h3>
+            <p className="bold">Address </p>
+            <p>{city}</p>
+            <p className="bold">Phone Number </p>
+            <p>{mobile}</p>
+            <p className="bold">E-mail </p>
+            <p>{email}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
