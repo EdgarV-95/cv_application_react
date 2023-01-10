@@ -29,23 +29,13 @@ textarea {
   resize: none;
 }
 
-.personal-information {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3vh;
-}
-
-.experience {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3vh;
-}
-
+/* .personal-information,
+.experience,
 .education {
   display: flex;
   flex-direction: column;
   gap: 0.3vh;
-}
+} */
 
 .buttons {
   margin-top: 5vh;

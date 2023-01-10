@@ -1,6 +1,8 @@
-import { useState } from 'react';
 import './App.css';
+import DetailField from './components/DetailField';
 import CustomInput from './components/CustomInput';
+import AddOrRemove from './components/AddField';
+import { useState } from 'react';
 
 function App() {
   // Personal Information
@@ -31,106 +33,108 @@ function App() {
   return (
     <div className="main">
       <form type="submit">
-        {/* Personal Information */}
-        <div className="personal-information">
-          <h4>Personal Information</h4>
-          <CustomInput
-            text={firstName}
-            placeholder={'First Name'}
-            func={(e) => setFirstName(e.target.value)}
-          />
-          <CustomInput
-            text={secondName}
-            placeholder="Last Name"
-            func={(e) => setSecondName(e.target.value)}
-          />
-          <CustomInput
-            text={title}
-            placeholder="Title"
-            func={(e) => setTitle(e.target.value)}
-          />
-          <CustomInput
-            text={city}
-            placeholder="City"
-            func={(e) => setCity(e.target.value)}
-          />
-          <CustomInput
-            text={email}
-            placeholder="Email"
-            func={(e) => setEmail(e.target.value)}
-          />
-          <CustomInput
-            text={mobile}
-            placeholder="Phone Number"
-            func={(e) => setMobile(e.target.value)}
-          />
-          <textarea
-            maxLength={'300'}
-            text={description}
-            placeholder="Description"
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-
-        {/* Experience */}
-        <div className="experience">
-          <h4>Experience</h4>
-          <CustomInput
-            text={position}
-            placeholder="Position"
-            func={(e) => setPosition(e.target.value)}
-          />
-          <CustomInput
-            text={company}
-            placeholder="Company"
-            func={(e) => setCompany(e.target.value)}
-          />
-          <CustomInput
-            text={expCity}
-            placeholder="City"
-            func={(e) => setExpCity(e.target.value)}
-          />
-          <CustomInput
-            text={yearFrom}
-            placeholder="From"
-            func={(e) => setYearFrom(e.target.value)}
-          />
-          <CustomInput
-            text={yearTo}
-            placeholder="To"
-            func={(e) => setYearTo(e.target.value)}
-          />
-        </div>
-
-        {/* Education */}
-        <div className="education">
-          <h4>Education</h4>
-          <CustomInput
-            text={univeristy}
-            placeholder="University"
-            func={(e) => setUniversity(e.target.value)}
-          />
-          <CustomInput
-            text={uniCity}
-            placeholder="City"
-            func={(e) => setUniCity(e.target.value)}
-          />
-          <CustomInput
-            text={degree}
-            placeholder="Degree"
-            func={(e) => setDegree(e.target.value)}
-          />
-          <CustomInput
-            text={uniyearFrom}
-            placeholder="From"
-            func={(e) => setUniyearFrom(e.target.value)}
-          />
-          <CustomInput
-            text={uniyearTo}
-            placeholder="To"
-            func={(e) => setUniyearTo(e.target.value)}
-          />
-        </div>
+        <DetailField
+          field={'Personal Information'}
+          children={[
+            <CustomInput
+              text={firstName}
+              placeholder={'First Name'}
+              func={(e) => setFirstName(e.target.value)}
+            />,
+            <CustomInput
+              text={secondName}
+              placeholder="Last Name"
+              func={(e) => setSecondName(e.target.value)}
+            />,
+            <CustomInput
+              text={title}
+              placeholder="Title"
+              func={(e) => setTitle(e.target.value)}
+            />,
+            <CustomInput
+              text={city}
+              placeholder="Location"
+              func={(e) => setCity(e.target.value)}
+            />,
+            <CustomInput
+              text={email}
+              placeholder="Email"
+              func={(e) => setEmail(e.target.value)}
+            />,
+            <CustomInput
+              text={mobile}
+              placeholder="Phone Number"
+              func={(e) => setMobile(e.target.value)}
+            />,
+            <textarea
+              maxLength={'300'}
+              text={description}
+              placeholder="Description"
+              onChange={(e) => setDescription(e.target.value)}
+            />,
+          ]}
+        />
+        <DetailField
+          field={'Experience'}
+          children={[
+            <CustomInput
+              text={position}
+              placeholder="Position"
+              func={(e) => setPosition(e.target.value)}
+            />,
+            <CustomInput
+              text={company}
+              placeholder="Company"
+              func={(e) => setCompany(e.target.value)}
+            />,
+            <CustomInput
+              text={expCity}
+              placeholder="City"
+              func={(e) => setExpCity(e.target.value)}
+            />,
+            <CustomInput
+              text={yearFrom}
+              placeholder="From"
+              func={(e) => setYearFrom(e.target.value)}
+            />,
+            <CustomInput
+              text={yearTo}
+              placeholder="To"
+              func={(e) => setYearTo(e.target.value)}
+            />,
+            <AddOrRemove />,
+          ]}
+        />
+        <DetailField
+          field={'Education'}
+          children={[
+            <CustomInput
+              text={univeristy}
+              placeholder="University"
+              func={(e) => setUniversity(e.target.value)}
+            />,
+            <CustomInput
+              text={uniCity}
+              placeholder="City"
+              func={(e) => setUniCity(e.target.value)}
+            />,
+            <CustomInput
+              text={degree}
+              placeholder="Degree"
+              func={(e) => setDegree(e.target.value)}
+            />,
+            <CustomInput
+              text={uniyearFrom}
+              placeholder="From"
+              func={(e) => setUniyearFrom(e.target.value)}
+            />,
+            <CustomInput
+              text={uniyearTo}
+              placeholder="To"
+              func={(e) => setUniyearTo(e.target.value)}
+            />,
+          ]}
+        />
         <div className="buttons">
           <button
             onClick={(e) => {
@@ -202,7 +206,7 @@ function App() {
               width={'150vw'}
             />
             <h3>Personal Details</h3>
-            <p className="bold">Address </p>
+            <p className="bold">Location </p>
             <p>{city}</p>
             <p className="bold">Phone Number </p>
             <p>{mobile}</p>
