@@ -10,14 +10,14 @@ export default function DetailField({ field, children }) {
     return (
       <div className={classTitle} style={theme}>
         <h4>{`${field}`}</h4>
-        {children.map((child) => child)}
+        {children}
       </div>
     );
   } else {
     return (
       <div className={field.toLowerCase()} style={theme}>
         <h4>{`${field}`}</h4>
-        {children.map((child) => child)}
+        {children}
       </div>
     );
   }
