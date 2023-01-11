@@ -16,7 +16,6 @@ export default function PersonalInfo({
 }) {
   return (
     <div className="personal-information">
-      <h4>Personal Information</h4>
       <input
         type="text"
         value={firstName}

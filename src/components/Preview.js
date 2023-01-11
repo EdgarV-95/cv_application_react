@@ -47,6 +47,23 @@ export default function Preview({
               </div>
             </div>
           </div>
+          {/* <div className="experience-prev">
+            <div className="experience-left">
+              <div className="dates">
+                <p className="bold">
+                  {yearFrom} - {yearTo}
+                </p>
+              </div>
+            </div>
+            <div className="experience-right">
+              <div className="details">
+                <p className="bold">{position}</p>
+                <p>
+                  {company}, {expCity}
+                </p>
+              </div>
+            </div>
+          </div> */}
           <h3>Education</h3>
           <div className="education-prev">
             <div className="education-left">

@@ -12,7 +12,6 @@ export default function Experience({
 }) {
   return (
     <div className="experience">
-      <h4>Experience</h4>
       <input
         type="text"
         value={position}

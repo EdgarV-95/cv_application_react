@@ -12,7 +12,6 @@ export default function Education({
 }) {
   return (
     <div className="education">
-      <h4>Education</h4>
       <input
         type="text"
         value={univeristy}

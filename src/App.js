@@ -34,6 +34,7 @@ export default function App() {
   return (
     <main>
       <div className="userInput">
+        <h4>Personal Information</h4>
         <PersonalInfo
           firstName={firstName}
           setFirstName={setFirstName}
@@ -50,6 +51,7 @@ export default function App() {
           description={description}
           setDescription={setDescription}
         />
+        <h4>Experience</h4>
         <Experience
           position={position}
           setPosition={setPosition}
@@ -62,6 +64,7 @@ export default function App() {
           yearTo={yearTo}
           setYearTo={setYearTo}
         />
+        <h4>Education</h4>
         <Education
           univeristy={university}
           setUniversity={setUniversity}
