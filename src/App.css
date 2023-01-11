@@ -1,84 +1,64 @@
-.main {
-  padding-left: 1.5vw;
+body {
+  overflow-y: hidden; /* Hide vertical scrollbar */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+main {
+  margin-top: 3.5vh;
+  margin-left: 5vw;
   display: flex;
-  gap: 10vw;
-  height: 100vh;
-  width: 100vw;
-}
-
-form {
-  /* border: 2px solid red; */
-  width: 35vw;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1vh;
-}
-
-h3 {
-  color: blue;
-  border-bottom: 2px solid gray;
-  margin-right: 2vw;
-}
-
-h4 {
-  margin-bottom: 0.5vh;
-}
-
-textarea {
-  height: 7.5vh;
-  resize: none;
-}
-
-/* .personal-information,
-.experience,
-.education {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3vh;
-} */
-
-.buttons {
-  margin-top: 5vh;
-  display: flex;
-  gap: 1vw;
-}
-
-.preview {
-  /* border: 2px solid blue; */
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  /* border: 2px solid green; */
-  background-color: blue;
-  color: white;
-  font-size: large;
-  font-weight: bold;
-  padding-left: 1.5vw;
-}
-
-.main-body {
-  display: flex;
-  padding-left: 1.5vw;
-}
-
-.left-side {
-  /* border: 2px solid pink; */
-  width: 35vw;
-}
-
-.experience-body,
-.education-body {
-  display: flex;
-  gap: 5vw;
+  height: 80vh;
+  width: 90vw;
+  gap: 2.5vw;
 }
 
 .bold {
   font-weight: bold;
 }
 
-.right-side {
-  /* border: 2px solid black; */
-  background-color: rgb(221, 221, 221);
+.userInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.personal-information,
+.experience,
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}
+
+h3 {
+  border-bottom: 1px solid black;
+}
+
+h4 {
+  margin-bottom: 0.5vh;
+}
+
+input {
+  width: 40vw;
+}
+
+textarea {
+  height: 10vh;
+  width: 40vw;
+  resize: vertical;
+}
+
+.preview {
+  padding-left: 2vw;
+  padding-right: 2vw;
+}
+
+.main-body {
+  display: flex;
+  gap: 2vw;
+}
+
+.experience-prev,
+.education-prev {
+  display: flex;
+  gap: 3.5vw;
 }
