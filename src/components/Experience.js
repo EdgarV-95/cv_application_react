@@ -1,47 +1,43 @@
-export default function Experience({
-  position,
-  setPosition,
-  company,
-  setCompany,
-  expCity,
-  setExpCity,
-  yearFrom,
-  setYearFrom,
-  yearTo,
-  setYearTo,
-}) {
+export default function Experience({ experience, onChange, onAdd }) {
   return (
     <div className="experience">
+      <h4>Experience</h4>
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={position}
-        placeholder={'Position'}
-        onChange={(e) => setPosition(e.target.value)}
+        name="position"
+        placeholder="position"
+        value={experience.position}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={company}
-        placeholder={'Company'}
-        onChange={(e) => setCompany(e.target.value)}
+        name="company"
+        placeholder="company"
+        value={experience.company}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={expCity}
-        placeholder={'Location'}
-        onChange={(e) => setExpCity(e.target.value)}
+        name="expCity"
+        placeholder="City"
+        value={experience.expCity}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={yearFrom}
-        placeholder={'Year From'}
-        onChange={(e) => setYearFrom(e.target.value)}
+        name="expYearFrom"
+        placeholder="Year From"
+        value={experience.expYearFrom}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={yearTo}
-        placeholder={'Year To'}
-        onChange={(e) => setYearTo(e.target.value)}
+        name="expYearTo"
+        placeholder="Year To"
+        value={experience.expYearTo}
       />
+      <button onClick={onAdd}>Add</button>
     </div>
   );
 }

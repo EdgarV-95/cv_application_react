@@ -1,46 +1,41 @@
-export default function Education({
-  univeristy,
-  setUniversity,
-  uniCity,
-  setUniCity,
-  degree,
-  setDegree,
-  uniYearFrom,
-  setUniYearFrom,
-  uniYearTo,
-  setUniYearTo,
-}) {
+export default function Education({ education, onChange }) {
   return (
     <div className="education">
+      <h4>Education</h4>
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={univeristy}
-        placeholder={'University name'}
-        onChange={(e) => setUniversity(e.target.value)}
+        name="university"
+        placeholder="University"
+        value={education.university}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={uniCity}
-        placeholder={'Location'}
-        onChange={(e) => setUniCity(e.target.value)}
+        name="eduCity"
+        placeholder="City"
+        value={education.eduCity}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={degree}
-        placeholder={'Degree'}
-        onChange={(e) => setDegree(e.target.value)}
+        name="degree"
+        placeholder="Degree"
+        value={education.degree}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={uniYearFrom}
-        placeholder={'Year From'}
-        onChange={(e) => setUniYearFrom(e.target.value)}
+        name="uniYearFrom"
+        placeholder="Year From"
+        value={education.uniYearFrom}
       />
       <input
+        onChange={(e) => onChange(e)}
         type="text"
-        value={uniYearTo}
-        placeholder={'Year To'}
-        onChange={(e) => setUniYearTo(e.target.value)}
+        name="uniYearTo"
+        placeholder="Year To"
+        value={education.uniYearTo}
       />
     </div>
   );
