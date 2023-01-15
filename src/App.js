@@ -83,8 +83,13 @@ export default function App() {
     }));
   };
 
-  const handleRemoveExperience = () => {
-    console.log('de');
+  const handleRemoveExperience = (id) => {
+    setCv((prevState) => {
+      const newExperience = prevState.experience.filter(
+        (experienceItem) => experienceItem.id !== id
+      );
+      return { ...prevState, experience: [...newExperience] };
+    });
   };
 
   const handleChangeEducation = (e, id) => {
@@ -120,8 +125,13 @@ export default function App() {
     }));
   };
 
-  const handleRemoveEducation = () => {
-    console.log('de');
+  const handleRemoveEducation = (id) => {
+    setCv((prevState) => {
+      const newEducation = prevState.education.filter(
+        (educationItem) => educationItem.id !== id
+      );
+      return { ...prevState, education: [...newEducation] };
+    });
   };
 
   return (

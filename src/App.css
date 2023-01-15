@@ -1,65 +1,87 @@
-/* body {
-  overflow-y: hidden;
-  overflow-x: hidden;
-} */
+:root {
+  --background: #8d8d8d;
+  --second-layer: #efefef;
+  --input: rgb(255, 255, 255);
+  --buttonClr: rgb(0, 0, 0);
+}
 
-button {
-  width: 25%;
+body {
+  margin: 3vh 0 0 3.5vw;
+  background-color: var(--background);
 }
 
 main {
-  margin-top: 3.5vh;
-  margin-left: 5vw;
   display: flex;
+  gap: 3vw;
+}
+
+h3 {
+  border-bottom: 0.5px solid black;
 }
 
 .bold {
   font-weight: bold;
 }
 
+input {
+  border: none;
+  box-shadow: 1px 2px black;
+  background-color: var(--input);
+}
+
+textarea {
+  height: 6vh;
+  resize: vertical;
+}
+
+button {
+  background-color: var(--buttonClr);
+  color: white;
+  width: 100%;
+  margin-top: 0.5vh;
+}
+
 .userInput {
-  display: flex;
-  flex-direction: column;
+  background-color: var(--second-layer);
+  box-shadow: 3px 3px 5px rgb(28, 28, 28);
+  padding: 2vh;
 }
 
 .personal-information,
-.experience,
-.education {
+.exp,
+.edu {
+  width: 35vw;
   display: flex;
   flex-direction: column;
   gap: 0.5vh;
 }
 
-h3 {
-  border-bottom: 1px solid black;
-}
-
-h4 {
-  margin-bottom: 0.5vh;
-}
-
-input {
-  width: 30vw;
-}
-
-textarea {
-  height: 10vh;
-  width: 30vw;
-  resize: vertical;
-}
-
 .preview {
-  padding-left: 2vw;
-  padding-right: 2vw;
+  background-color: var(--second-layer);
+  box-shadow: 3px 3px 5px rgb(28, 28, 28);
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
+  padding: 2vh;
 }
 
 .main-body {
   display: flex;
-  gap: 2vw;
+  gap: 2.5vw;
+}
+
+.left-side {
+  width: 25vw;
 }
 
 .experience-prev,
 .education-prev {
   display: flex;
-  gap: 3.5vw;
+}
+
+.experience-left {
+  width: 8.5vw;
+}
+
+.education-left {
+  width: 12vw;
 }

@@ -6,7 +6,7 @@ export default function Experience({
 }) {
   let newExp = experience.map((exp) => (
     <div
-      className={`exp-${Math.floor(Math.random() * 1000)}`}
+      className={`exp -${Math.floor(Math.random() * 1000)}`}
       key={exp.id}
     >
       <input
@@ -44,7 +44,7 @@ export default function Experience({
         placeholder="Year To"
         value={exp.expYearTo}
       />
-      <button onClick={onRemove}>Delete</button>
+      <button onClick={() => onRemove(exp.id)}>Delete</button>
     </div>
   ));
   return (

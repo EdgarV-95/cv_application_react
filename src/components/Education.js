@@ -6,7 +6,7 @@ export default function Education({
 }) {
   let newEdu = education.map((edu) => (
     <div
-      className={`edu-${Math.floor(Math.random() * 1000)}`}
+      className={`edu -${Math.floor(Math.random() * 1000)}`}
       key={edu.id}
     >
       <input
@@ -44,7 +44,7 @@ export default function Education({
         placeholder="Year To"
         value={edu.uniYearTo}
       />
-      <button onClick={onRemove}>Delete</button>
+      <button onClick={() => onRemove(edu.id)}>Delete</button>
     </div>
   ));
   return (

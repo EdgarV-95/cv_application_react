@@ -37,7 +37,7 @@ export default function Main({
             window.location.reload();
           }}
         >
-          Test
+          Reset
         </button>
       </div>
       <div className="preview">
@@ -58,14 +58,13 @@ export default function Main({
                 <div className="experience-left">
                   <div className="dates">
                     <p className="bold">
-                      {test.expYearFrom} - {''}
-                      {test.expYearTo}
+                      {test.expYearFrom} - {test.expYearTo}
                     </p>
                   </div>
                 </div>
                 <div className="experience-right">
                   <div className="details">
-                    <p className="bold">{test.position}</p>
+                    <p className="bold">{test.position},</p>
                     <p>
                       {test.company}, {test.expCity}
                     </p>
