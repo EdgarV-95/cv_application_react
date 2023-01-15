@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { v4 as uuidv4 } from 'uuid';
 import Main from './components/Main';
 
 const emptyCV = {
@@ -13,20 +14,25 @@ const emptyCV = {
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum id enim vel blandit. Ut dapibus nec risus quis bibendum. Pellentesque vel interdum dui, et imperdiet mi.',
   },
-  experience: {
-    position: 'Web Dev',
-    company: 'Verint',
-    expCity: 'Cambridge',
-    expYearFrom: '2018',
-    expYearTo: '2023',
-  },
-  education: {
-    university: 'University of Birmingham',
-    eduCity: 'Birmingham',
-    degree: 'Marketing & Management',
-    uniYearFrom: '2014',
-    uniYearTo: '2017',
-  },
+  experience: [
+    {
+      id: uuidv4(),
+      position: 'Web Dev',
+      company: 'Verint',
+      expCity: 'Cambridge',
+      expYearFrom: '2018',
+      expYearTo: '2023',
+    },
+  ],
+  education: [
+    {
+      university: 'University of Birmingham',
+      eduCity: 'Birmingham',
+      degree: 'Marketing & Management',
+      uniYearFrom: '2014',
+      uniYearTo: '2017',
+    },
+  ],
 };
 
 export default function App() {
@@ -43,15 +49,20 @@ export default function App() {
     }));
   };
 
-  const handleChangeExperience = (e) => {
+  const handleChangeExperience = (e, id) => {
     const { name, value } = e.target;
-    setCv((prevState) => ({
-      ...prevState,
-      experience: {
-        ...prevState.experience,
-        [name]: value,
-      },
-    }));
+
+    setCv((prevState) => {
+      const newExperience = prevState.experience.map(
+        (experienceItem) => {
+          if (experienceItem.id === id) {
+            return { ...experienceItem, [name]: value };
+          }
+          return experienceItem;
+        }
+      );
+      return { ...prevState, experience: [...newExperience] };
+    });
   };
 
   const handleAddExperience = () => {
@@ -60,7 +71,7 @@ export default function App() {
       experience: [
         ...prevState.experience,
         {
-          id: '1',
+          id: uuidv4(),
           position: '',
           company: '',
           city: '',
