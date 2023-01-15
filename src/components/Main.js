@@ -47,7 +47,7 @@ export default function Main({
             <h3>Description</h3>
             <p>{cv.personalInfo.description}</p>
             <h3>Experience</h3>
-            <div className="experience-prev">
+            {/* <div className="experience-prev">
               <div className="experience-left">
                 <div className="dates">
                   <p className="bold">
@@ -64,7 +64,29 @@ export default function Main({
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
+            {cv.experience.map((test) => (
+              <>
+                <div className="experience-prev">
+                  <div className="experience-left">
+                    <div className="dates">
+                      <p className="bold">
+                        {test.expYearFrom} - {''}
+                        {test.expYearTo}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="experience-right">
+                    <div className="details">
+                      <p className="bold">{test.position}</p>
+                      <p>
+                        {test.company}, {test.expCity}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
+            ))}
             <h3>Education</h3>
             <div className="education-prev">
               <div className="education-left">

@@ -1,10 +1,11 @@
 export default function Experience({ experience, onChange, onAdd }) {
   let newExp = experience.map((exp) => (
-    <div className="test" key={exp.id}>
+    <div
+      className={`exp-${Math.floor(Math.random() * 1000)}`}
+      key={exp.id}
+    >
       <h4>Experience</h4>
       <input
-        key={exp.id}
-        id={exp.id}
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="position"
@@ -12,8 +13,6 @@ export default function Experience({ experience, onChange, onAdd }) {
         value={exp.position}
       />
       <input
-        key={exp.id}
-        id={exp.id}
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="company"
@@ -21,8 +20,6 @@ export default function Experience({ experience, onChange, onAdd }) {
         value={exp.company}
       />
       <input
-        key={exp.id}
-        id={exp.id}
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="expCity"
@@ -30,8 +27,6 @@ export default function Experience({ experience, onChange, onAdd }) {
         value={experience.expCity}
       />
       <input
-        key={exp.id}
-        id={exp.id}
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="expYearFrom"
@@ -39,8 +34,6 @@ export default function Experience({ experience, onChange, onAdd }) {
         value={experience.expYearFrom}
       />
       <input
-        key={exp.id}
-        id={exp.id}
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="expYearTo"
