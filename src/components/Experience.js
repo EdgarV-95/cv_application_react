@@ -1,22 +1,26 @@
-export default function Experience({ experience, onChange, onAdd }) {
+export default function Experience({
+  experience,
+  onChange,
+  onAdd,
+  onRemove,
+}) {
   let newExp = experience.map((exp) => (
     <div
       className={`exp-${Math.floor(Math.random() * 1000)}`}
       key={exp.id}
     >
-      <h4>Experience</h4>
       <input
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="position"
-        placeholder="position"
+        placeholder="Position"
         value={exp.position}
       />
       <input
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="company"
-        placeholder="company"
+        placeholder="Company"
         value={exp.company}
       />
       <input
@@ -24,26 +28,28 @@ export default function Experience({ experience, onChange, onAdd }) {
         type="text"
         name="expCity"
         placeholder="City"
-        value={experience.expCity}
+        value={exp.expCity}
       />
       <input
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="expYearFrom"
         placeholder="Year From"
-        value={experience.expYearFrom}
+        value={exp.expYearFrom}
       />
       <input
         onChange={(e) => onChange(e, exp.id)}
         type="text"
         name="expYearTo"
         placeholder="Year To"
-        value={experience.expYearTo}
+        value={exp.expYearTo}
       />
+      <button onClick={onRemove}>Delete</button>
     </div>
   ));
   return (
     <div className="experience">
+      <h4>Experience</h4>
       {newExp}
       <button onClick={onAdd}>Add</button>
     </div>

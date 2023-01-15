@@ -17,7 +17,7 @@ const emptyCV = {
   experience: [
     {
       id: uuidv4(),
-      position: 'Web Dev',
+      position: 'Web Developer',
       company: 'Verint',
       expCity: 'Cambridge',
       expYearFrom: '2018',
@@ -26,6 +26,7 @@ const emptyCV = {
   ],
   education: [
     {
+      id: uuidv4(),
       university: 'University of Birmingham',
       eduCity: 'Birmingham',
       degree: 'Marketing & Management',
@@ -82,15 +83,45 @@ export default function App() {
     }));
   };
 
-  const handleChangeEducation = (e) => {
+  const handleRemoveExperience = () => {
+    console.log('de');
+  };
+
+  const handleChangeEducation = (e, id) => {
     const { name, value } = e.target;
+
+    setCv((prevState) => {
+      const newEducation = prevState.education.map(
+        (educationItem) => {
+          if (educationItem.id === id) {
+            return { ...educationItem, [name]: value };
+          }
+          return educationItem;
+        }
+      );
+      return { ...prevState, education: [...newEducation] };
+    });
+  };
+
+  const handleAddEducation = () => {
     setCv((prevState) => ({
       ...prevState,
-      education: {
+      education: [
         ...prevState.education,
-        [name]: value,
-      },
+        {
+          id: uuidv4(),
+          position: '',
+          company: '',
+          city: '',
+          from: '',
+          to: '',
+        },
+      ],
     }));
+  };
+
+  const handleRemoveEducation = () => {
+    console.log('de');
   };
 
   return (
@@ -101,6 +132,9 @@ export default function App() {
         onChangeExperience={handleChangeExperience}
         onChangeEducation={handleChangeEducation}
         onAddExperience={handleAddExperience}
+        onAddEducation={handleAddEducation}
+        onRemoveExperience={handleRemoveExperience}
+        onRemoveEducation={handleRemoveEducation}
       />
     </>
   );

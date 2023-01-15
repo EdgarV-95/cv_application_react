@@ -8,6 +8,9 @@ export default function Main({
   onChangeEducation,
   onChangeExperience,
   onAddExperience,
+  onAddEducation,
+  onRemoveExperience,
+  onRemoveEducation,
 }) {
   return (
     <main>
@@ -20,10 +23,13 @@ export default function Main({
           experience={cv.experience}
           onChange={onChangeExperience}
           onAdd={onAddExperience}
+          onRemove={onRemoveExperience}
         />
         <Education
           education={cv.education}
           onChange={onChangeEducation}
+          onAdd={onAddEducation}
+          onRemove={onRemoveEducation}
         />
         <button
           onClick={(e) => {
@@ -47,65 +53,46 @@ export default function Main({
             <h3>Description</h3>
             <p>{cv.personalInfo.description}</p>
             <h3>Experience</h3>
-            {/* <div className="experience-prev">
-              <div className="experience-left">
-                <div className="dates">
-                  <p className="bold">
-                    {cv.experience.expYearFrom} - {''}
-                    {cv.experience.expYearTo}
-                  </p>
-                </div>
-              </div>
-              <div className="experience-right">
-                <div className="details">
-                  <p className="bold">{cv.experience.position}</p>
-                  <p>
-                    {cv.experience.company}, {cv.experience.expCity}
-                  </p>
-                </div>
-              </div>
-            </div> */}
             {cv.experience.map((test) => (
-              <>
-                <div className="experience-prev">
-                  <div className="experience-left">
-                    <div className="dates">
-                      <p className="bold">
-                        {test.expYearFrom} - {''}
-                        {test.expYearTo}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="experience-right">
-                    <div className="details">
-                      <p className="bold">{test.position}</p>
-                      <p>
-                        {test.company}, {test.expCity}
-                      </p>
-                    </div>
+              <div className="experience-prev" key={test.id}>
+                <div className="experience-left">
+                  <div className="dates">
+                    <p className="bold">
+                      {test.expYearFrom} - {''}
+                      {test.expYearTo}
+                    </p>
                   </div>
                 </div>
-              </>
+                <div className="experience-right">
+                  <div className="details">
+                    <p className="bold">{test.position}</p>
+                    <p>
+                      {test.company}, {test.expCity}
+                    </p>
+                  </div>
+                </div>
+              </div>
             ))}
             <h3>Education</h3>
-            <div className="education-prev">
-              <div className="education-left">
-                <div className="dates">
-                  <p className="bold">
-                    {cv.education.uniYearFrom} - {''}
-                    {cv.education.uniYearTo}
-                  </p>
+            {cv.education.map((test) => (
+              <div className="education-prev" key={test.id}>
+                <div className="education-left">
+                  <div className="dates">
+                    <p className="bold">
+                      {test.uniYearFrom} - {test.uniYearTo}
+                    </p>
+                  </div>
+                </div>
+                <div className="education-right">
+                  <div className="details">
+                    <p className="bold">
+                      {test.university}, {test.eduCity}
+                    </p>
+                    <p>{test.degree}</p>
+                  </div>
                 </div>
               </div>
-              <div className="education-right">
-                <div className="details">
-                  <p className="bold">
-                    {cv.education.university}, {cv.education.uniCity}
-                  </p>
-                  <p>Degree: {cv.education.degree}</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
           <div className="right-side">
             <img

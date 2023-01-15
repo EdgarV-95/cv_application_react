@@ -44,7 +44,7 @@ export default function PersonalInfo({ personalInfo, onChange }) {
         placeholder="Mobile"
         value={personalInfo.mobile}
       />
-      <input
+      <textarea
         onChange={(e) => onChange(e)}
         type="text"
         name="description"

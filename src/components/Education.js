@@ -1,42 +1,57 @@
-export default function Education({ education, onChange }) {
-  return (
-    <div className="education">
-      <h4>Education</h4>
+export default function Education({
+  education,
+  onChange,
+  onAdd,
+  onRemove,
+}) {
+  let newEdu = education.map((edu) => (
+    <div
+      className={`edu-${Math.floor(Math.random() * 1000)}`}
+      key={edu.id}
+    >
       <input
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e, edu.id)}
         type="text"
         name="university"
         placeholder="University"
-        value={education.university}
+        value={edu.university}
       />
       <input
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e, edu.id)}
         type="text"
         name="eduCity"
         placeholder="City"
-        value={education.eduCity}
+        value={edu.eduCity}
       />
       <input
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e, edu.id)}
         type="text"
         name="degree"
         placeholder="Degree"
-        value={education.degree}
+        value={edu.degree}
       />
       <input
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e, edu.id)}
         type="text"
         name="uniYearFrom"
         placeholder="Year From"
-        value={education.uniYearFrom}
+        value={edu.uniYearFrom}
       />
       <input
-        onChange={(e) => onChange(e)}
+        onChange={(e) => onChange(e, edu.id)}
         type="text"
         name="uniYearTo"
         placeholder="Year To"
-        value={education.uniYearTo}
+        value={edu.uniYearTo}
       />
+      <button onClick={onRemove}>Delete</button>
+    </div>
+  ));
+  return (
+    <div className="education">
+      <h4>Education</h4>
+      {newEdu}
+      <button onClick={onAdd}>Add</button>
     </div>
   );
 }
