@@ -1,40 +1,9 @@
 import { useState } from 'react';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
+import emptyCV from './components/cv_data/emptyCV';
+import demoCV from './components/cv_data/demoCV';
 import Main from './components/Main';
-
-const emptyCV = {
-  personalInfo: {
-    firstName: 'Edgar',
-    secondName: 'Veress',
-    title: 'Web Developer',
-    city: 'Cambridge',
-    email: 'veress.edgar@gmail.com',
-    mobile: '07729046204',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum id enim vel blandit. Ut dapibus nec risus quis bibendum. Pellentesque vel interdum dui, et imperdiet mi.',
-  },
-  experience: [
-    {
-      id: uuidv4(),
-      position: 'Web Developer',
-      company: 'Verint',
-      expCity: 'Cambridge',
-      expYearFrom: '2018',
-      expYearTo: '2023',
-    },
-  ],
-  education: [
-    {
-      id: uuidv4(),
-      university: 'University of Birmingham',
-      eduCity: 'Birmingham',
-      degree: 'Marketing & Management',
-      uniYearFrom: '2014',
-      uniYearTo: '2017',
-    },
-  ],
-};
 
 export default function App() {
   const [cv, setCv] = useState(emptyCV);
@@ -134,6 +103,14 @@ export default function App() {
     });
   };
 
+  const handleResetCV = () => {
+    setCv(emptyCV);
+  };
+
+  const handleDemoCV = () => {
+    setCv(demoCV);
+  };
+
   return (
     <>
       <Main
@@ -145,6 +122,8 @@ export default function App() {
         onAddEducation={handleAddEducation}
         onRemoveExperience={handleRemoveExperience}
         onRemoveEducation={handleRemoveEducation}
+        onResetCV={handleResetCV}
+        onDemoCV={handleDemoCV}
       />
     </>
   );

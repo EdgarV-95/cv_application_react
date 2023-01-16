@@ -11,6 +11,8 @@ export default function Main({
   onAddEducation,
   onRemoveExperience,
   onRemoveEducation,
+  onResetCV,
+  onDemoCV,
 }) {
   return (
     <main>
@@ -31,13 +33,22 @@ export default function Main({
           onAdd={onAddEducation}
           onRemove={onRemoveEducation}
         />
+        <br></br>
         <button
           onClick={(e) => {
             e.preventDefault();
-            window.location.reload();
+            onDemoCV();
           }}
         >
-          Reset
+          Demo CV
+        </button>
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            onResetCV();
+          }}
+        >
+          Reset CV
         </button>
       </div>
       <div className="preview">
@@ -95,7 +106,7 @@ export default function Main({
           </div>
           <div className="right-side">
             <img
-              src="https://scontent-man2-1.xx.fbcdn.net/v/t31.18172-8/19388392_1365649726821443_1731989948078814899_o.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=TC-gmvUs22sAX-maW_o&_nc_ht=scontent-man2-1.xx&oh=00_AfDrIvg00MVQTJ72Ed-oGUeXaJrQY6b46xdZWboyxOLNhw&oe=63E56AB2"
+              src={cv.personalInfo.image}
               alt="avatar"
               height={'150vh'}
               width={'150vw'}

@@ -39,6 +39,7 @@ button {
   color: white;
   width: 100%;
   margin-top: 0.5vh;
+  cursor: pointer;
 }
 
 .userInput {
