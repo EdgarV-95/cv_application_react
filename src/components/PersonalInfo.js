@@ -1,4 +1,8 @@
-export default function PersonalInfo({ personalInfo, onChange }) {
+export default function PersonalInfo({
+  personalInfo,
+  onChange,
+  onImage,
+}) {
   return (
     <div className="personal-information">
       <h4>Personal Information</h4>
@@ -43,6 +47,12 @@ export default function PersonalInfo({ personalInfo, onChange }) {
         name="mobile"
         placeholder="Mobile"
         value={personalInfo.mobile}
+      />
+      <input
+        onChange={onImage}
+        type="file"
+        name="image"
+        accept="image/*"
       />
       <textarea
         onChange={(e) => onChange(e)}

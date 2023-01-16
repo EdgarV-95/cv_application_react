@@ -13,6 +13,7 @@ export default function Main({
   onRemoveEducation,
   onResetCV,
   onDemoCV,
+  onImageUpload,
 }) {
   return (
     <main>
@@ -20,6 +21,7 @@ export default function Main({
         <PersonalInfo
           personalInfo={cv.personalInfo}
           onChange={onChangePersonal}
+          onImage={onImageUpload}
         />
         <Experience
           experience={cv.experience}

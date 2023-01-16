@@ -9,7 +9,13 @@ export default function App() {
   const [cv, setCv] = useState(emptyCV);
 
   const handleChangePersonal = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
+
+    if (type === 'file') {
+      handleChangeImage(e);
+      return;
+    }
+
     setCv((prevState) => ({
       ...prevState,
       personalInfo: {
@@ -17,6 +23,24 @@ export default function App() {
         [name]: value,
       },
     }));
+  };
+
+  const handleChangeImage = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      setCv((prevState) => ({
+        ...prevState,
+        personalInfo: {
+          ...prevState.personalInfo,
+          [name]: reader.result,
+        },
+      }));
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleChangeExperience = (e, id) => {
@@ -124,6 +148,7 @@ export default function App() {
         onRemoveEducation={handleRemoveEducation}
         onResetCV={handleResetCV}
         onDemoCV={handleDemoCV}
+        onImageUpload={handleChangeImage}
       />
     </>
   );
