@@ -5,15 +5,16 @@ import Experience from './Experience';
 export default function Main({
   cv,
   onChangePersonal,
+  onImageUpload,
   onChangeEducation,
   onChangeExperience,
   onAddExperience,
   onAddEducation,
   onRemoveExperience,
   onRemoveEducation,
-  onResetCV,
   onDemoCV,
-  onImageUpload,
+  onResetCV,
+  onPDFGen,
 }) {
   return (
     <main>
@@ -36,6 +37,13 @@ export default function Main({
           onRemove={onRemoveEducation}
         />
         <br></br>
+        <button
+          onClick={() => {
+            onPDFGen();
+          }}
+        >
+          Generate PDF
+        </button>
         <button
           onClick={(e) => {
             e.preventDefault();

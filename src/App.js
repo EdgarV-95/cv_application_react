@@ -1,6 +1,7 @@
-import { useState } from 'react';
 import './App.css';
 import { v4 as uuidv4 } from 'uuid';
+import JsPDF from 'jspdf';
+import { useState } from 'react';
 import emptyCV from './components/cv_data/emptyCV';
 import demoCV from './components/cv_data/demoCV';
 import Main from './components/Main';
@@ -127,6 +128,20 @@ export default function App() {
     });
   };
 
+  let downloadFinished = false;
+  const handleGeneratePDF = () => {
+    // if (!downloadFinished) {
+    //   document.querySelector('html').style.zoom = 0.55;
+    // } else {
+    //   document.querySelector('html').style.zoom = 1;
+    // }
+    const report = new JsPDF('p', 'pt', 'a4');
+    report.html(document.querySelector('.preview')).then(() => {
+      report.save('cv.pdf');
+      downloadFinished = true;
+    });
+  };
+
   const handleResetCV = () => {
     setCv(emptyCV);
   };
@@ -140,15 +155,16 @@ export default function App() {
       <Main
         cv={cv}
         onChangePersonal={handleChangePersonal}
+        onImageUpload={handleChangeImage}
         onChangeExperience={handleChangeExperience}
         onChangeEducation={handleChangeEducation}
         onAddExperience={handleAddExperience}
         onAddEducation={handleAddEducation}
         onRemoveExperience={handleRemoveExperience}
         onRemoveEducation={handleRemoveEducation}
-        onResetCV={handleResetCV}
+        onPDFGen={handleGeneratePDF}
         onDemoCV={handleDemoCV}
-        onImageUpload={handleChangeImage}
+        onResetCV={handleResetCV}
       />
     </>
   );

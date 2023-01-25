@@ -58,20 +58,22 @@ button {
 }
 
 .preview {
-  background-color: var(--second-layer);
+  background-color: white;
   box-shadow: 3px 3px 5px rgb(28, 28, 28);
-  margin-left: 7.5vw;
-  margin-right: 7.5vw;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
   padding: 2vh;
+  width: 21cm;
+  height: 80vh;
 }
 
 .main-body {
   display: flex;
-  gap: 2.5vw;
+  gap: 2vw;
 }
 
 .left-side {
-  width: 25vw;
+  width: 50vw;
 }
 
 .experience-prev,
@@ -79,10 +81,7 @@ button {
   display: flex;
 }
 
-.experience-left {
-  width: 8.5vw;
-}
-
+.experience-left,
 .education-left {
-  width: 12vw;
+  width: 8.5vw;
 }
